@@ -2,6 +2,7 @@
 const enter = document.querySelector("#enter")
 const list = document.querySelector('#list')
 const newTodo = document.querySelector('#new-todo')
+const completeList = document.querySelector('#list-complete')
 
 //click button
 enter.addEventListener('click', () => {
@@ -11,6 +12,18 @@ enter.addEventListener('click', () => {
     //adding to the list
     list.append(li) 
 
+    //create completelist checkbox
+    const checkbox = document.createElement('input')
+    checkbox.setAttribute('type', 'checkbox')
+    li.append(checkbox)
+
+    //transfer to completedlist
+    checkbox.addEventListener('change', () => {
+        list.removeChild(li)
+        //add the li to the completeList:
+        completeList.append(li)
+    })
+
     //create delete button
     const removeBtn = document.createElement('button')
     // innerText used to change the text inside an element
@@ -19,9 +32,10 @@ enter.addEventListener('click', () => {
     li.append(removeBtn)
 
     removeBtn.addEventListener('click', () => {
-        list.removeChild(li)
-        
+        list.removeChild(li) 
     });
+
+
 
     const showDateBtn = document.createElement('button')
     showDateBtn.innerText = 'Show Date';
@@ -32,6 +46,8 @@ enter.addEventListener('click', () => {
         const date = Date()
         // append variable date
         li.append(date)
+        //to disable button after click
+        showDateBtn.disabled = true
     });
 
 

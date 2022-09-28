@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" type="text/javascript" defer></script>
     <title>ToDo List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -16,9 +17,13 @@
 
         <form action="">
             <input type="text" placeholder="Add a new item" id="new-todo">
-            <button type="button" id="enter">Enter!</button>
+            <button type="button" id="enter">Add!</button>
         </form>
-
+        
+        <input type="checkbox" id="option-all">
+        <label for="option-all">Select All</label>
+        <br> 
+        
         <ul id="list">
             <!-- items on ToDo list go here! -->
         </ul>
